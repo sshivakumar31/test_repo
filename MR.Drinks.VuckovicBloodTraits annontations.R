@@ -1,8 +1,11 @@
+
+##this has annotations
 #Liu et al DrinksPerWeek on VUCKOVIC 2020 CELL blood traits
 
 ###########################################
 ##  Below is the iterative run for all blood traits, requires pre-filtered and clumped data for exposure
 ###############################
+
 
 
 ###########   Filter

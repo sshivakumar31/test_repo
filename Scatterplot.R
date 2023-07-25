@@ -7,10 +7,25 @@ do
   sed -e '1s/0/lower.confidence.interval/' -e '1s/0/upper.confidence.interval/' -e '1s/0/ci/' "tmp" > "$file.Results.txt";
 done
 
-# R script - Scatterplot generation
-library(ggplot2)
-library(viridis)
 
+# Read the Previous results files and filter rows with "Inverse variance weighted" in the methods column
+results_files <- list.files(pattern = "*Results.txt")
+all_rows <- do.call(rbind, lapply(results_files, function(file) {
+  data <- read.delim(file, header = TRUE, sep = "\t")
+  subset(data, methods == "Inverse variance weighted")
+}))
+
+# Save the filtered rows into a new file
+write.table(all_rows, file = "all.results.txt", sep = "\t", row.names = FALSE, col.names = TRUE)
+
+
+
+# R script - Scatterplot generation
+Rscript -e 'library(ggplot2);
+library(RColorBrewer);
+library(viridis);
+
+ds 
 # Read the file
 ds <- 
 read.csv("/Users/shriyasaishivakumar/MR.SmkInit.Blood/DrnksWk.EUR.csv")
@@ -42,5 +57,5 @@ my_colors <- viridis_pal(option = "viridis")(16)
 bp <- bp + scale_color_manual(values = my_colors)
 
 # Save the plot
-ggsave("scatterplot_with_asterisk_and_hline.pdf", plot = bp)
+ggsave("scatterplot.pdf", plot = bp)
 

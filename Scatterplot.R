@@ -10,10 +10,10 @@ done
 
 # Read the Previous results files and filter rows with "Inverse variance weighted" in the methods column
 results_files <- list.files(pattern = "*Results.txt")
-all_rows <- do.call(rbind, lapply(results_files, function(file) {
-  data <- read.delim(file, header = TRUE, sep = "\t")
-  subset(data, methods == "Inverse variance weighted")
-}))
+all_rows <- do.call(rbind, lapply(results_files, function(file) 
+{data <- read.delim(file, header = TRUE, sep = "\t")
+  subset(data, methods == "Inverse variance weighted")}
+                                 ))
 
 # Save the filtered rows into a new file
 write.table(all_rows, file = "all.results.txt", sep = "\t", row.names = FALSE, col.names = TRUE)

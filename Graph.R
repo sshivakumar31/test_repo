@@ -28,7 +28,7 @@ library(viridis);
 ds 
 # Read the file
 ds <- 
-read.csv("/Users/shriyasaishivakumar/MR.SmkInit.Blood/DrnksWk.EUR.csv")
+read.csv("/mnt/isilon/thom_lab/thomlab_MR/shivakums1/Bitarello.Multi.Blood/all.traits.IVW.results.csv")
 
 # Extract the trait name
 ds$id.exposure <- sub("^[^.]+\\.(.*?)\\..*$", "\\1", ds$id.exposure)

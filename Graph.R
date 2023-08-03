@@ -16,7 +16,7 @@ all_rows <- do.call(rbind, lapply(results_files, function(file)
                                  ))
 
 # Save the filtered rows into a new file
-write.table(all_rows, file = "all.traits.IVW.results.txt", sep = "\t", row.names = FALSE, col.names = TRUE)
+write.csv(all_rows, file = "all.traits.IVW.results.csv", sep = "\t", row.names = FALSE, col.names = TRUE)
 
 
 
